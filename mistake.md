@@ -6,3 +6,6 @@
 * LeetCode118
 * LeetCode697
 * LeetCode26
+* LeetCode581
+* LeetCode189
+
