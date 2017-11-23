@@ -24,3 +24,12 @@
 * LeetCode661
 * LeetCode643  滑动窗口
 * LeetCode532-----2
+
+### 2017/11/23
+
+* LeetCode229
+* LeetCode56
+* LeetCode15
+* LeetCode16
+* LeetCode380
+
