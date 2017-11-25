@@ -33,4 +33,17 @@
 * LeetCode16
 * LeetCode380
 * LeetCode62
+* LeetCode63
+* LeetCode238
+* LeetCode73 方法不好
 
+
+### 2017/11/24
+
+* LeetCode216
+* LeetCode729 方法不好 可以用treemap
+* LeetCode78
+* LeetCode731
+* LeetCode152
+* LeetCode718
+* LeetCode18
