@@ -60,3 +60,8 @@
 ### 2017/11/27
 
 * LeetCode79
+* LeetCode39
+* LeetCode714
+* LeetCode31
+* LeetCode18 重点 难题 不会
+* LeetCode621
