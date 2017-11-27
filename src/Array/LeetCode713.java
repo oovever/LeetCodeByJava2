@@ -8,21 +8,19 @@ import java.util.jar.JarEntry;
  */
 public class LeetCode713 {
     public static int numSubarrayProductLessThanK(int[] nums, int k) {
-        int n = nums.length;
-        long p = 1l;
-        int i = 0;
-        int j = 0;
-        int total = 0;
-        while(j < n){
-            p *= nums[j];
-            while(i <= j&&p >= k){
-                p /= nums[i];
-                i++;
-            }
-            total += (j - i + 1);
-            j++;
+        if (k < 2) {
+            return 0;
         }
-        return total;
+        int result = 0;
+        int product = 1;
+        for(int i=0,right=0;right<nums.length;right++) {
+            product *= nums[right];
+            while (i <=right && product >= k) {
+                product /= nums[i++];
+            }
+            result += right - i + 1;
+        }
+        return result;
     }
 
     public static void main(String[] args) {
