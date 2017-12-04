@@ -76,3 +76,8 @@
 * LeetCode715
 * LeetCode689
 * LeetCode57
+
+### 2017/12/4
+
+* LeetCode38
+* LeetCode345
