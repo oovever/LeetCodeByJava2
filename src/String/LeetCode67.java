@@ -6,55 +6,26 @@ package String;
  */
 public class LeetCode67 {
     public String addBinary(String a, String b) {
-        if (a.length() == 0) {
-            return b;
-        } else if (b.length() == 0) {
-            return a;
-        }
-        if (a.length() < b.length()) {
-            return addBinary(b, a);
-        }
         StringBuilder stringBuilder = new StringBuilder();
-        int i = 0, j = 0;
-        char in = '0';
-        while (i < a.length() && j < b.length()) {
-            if (a.charAt(i) == '1' && b.charAt(j) == '1') {
-                if (in == '0') {
-                    stringBuilder.append('0');
-                } else if (in == '1') {
-                    stringBuilder.append('1');
-                }
-                in = '1';
-                i++;
-                j++;
-            } else if (a.charAt(i) == '0' && b.charAt(j) == '1' || a.charAt(i) == '1' && b.charAt(j) == '0') {
-                if (in == '0') {
-                    stringBuilder.append('1');
-                    in = '0';
-                } else if (in == '1') {
-                    stringBuilder.append('0');
-                    in = '1';
-                }
-                i++;
-                j++;
-            } else if (a.charAt(i) == 0 && b.charAt(j) == 0) {
-                stringBuilder.append(in);
-                in = '0';
-                i++;
-                j++;
+        int i = a.length() - 1;
+        int j = b.length() - 1;
+        int sum = 0;
+        int carry = 0;
+        while (i >= 0 || j >= 0) {
+            sum = carry;
+            if (i >= 0) {
+                sum += a.charAt(i--) - '0';
             }
-        }
-        while (i < a.length()) {
-            if (in == '1' && a.charAt(i) == '1') {
-                stringBuilder.append('0');
-                in = '1';
-                i++;
-            } else if (in == '1' && a.charAt(i) == '0') {
-                stringBuilder.append('1');
-                in = '0';
-                i++;
+            if (j >= 0) {
+                sum += b.charAt(j--) - '0';
             }
+            stringBuilder.append(sum % 2);
+            carry = sum / 2;
         }
-        return stringBuilder.toString();
+        if (carry != 0) {
+            stringBuilder.append(carry);
+        }
+        return stringBuilder.reverse().toString();
     }
+
 }
