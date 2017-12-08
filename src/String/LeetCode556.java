@@ -23,26 +23,26 @@ public class LeetCode556 {
             return -1;
         }
         int maxIndex = i;
+        for(int k=maxIndex-1;k>=0;k--) {
         for(int j=intToChar.length-1;j>=maxIndex;j--) {
-            for(int k=0;j<maxIndex;k++) {
-                if (intToChar[i] < intToChar[j]) {
-                    char temp = intToChar[i];
-                    intToChar[i] = intToChar[j];
+                if (intToChar[k] < intToChar[j]) {
+                    char temp = intToChar[k];
+                    intToChar[k] = intToChar[j];
                     intToChar[j] = temp;
-                    Arrays.sort(intToChar,j,intToChar.length);
-                    break;
+                    Arrays.sort(intToChar,k+1,intToChar.length);
+                    if (Long.valueOf(String.valueOf(intToChar))>Long.valueOf(String.valueOf(Integer.MAX_VALUE))) {
+                        return -1;
+                    }
+                    return Integer.valueOf(String.valueOf(intToChar));
                 }
             }
 
         }
-        if (Long.valueOf(String.valueOf(intToChar))>Long.valueOf(String.valueOf(Integer.MAX_VALUE))) {
-            return -1;
-        }
-        return Integer.valueOf(String.valueOf(intToChar));
+        return -1;
     }
 
     public static void main(String[] args) {
 //        System.out.println(Integer.valueOf("9199999999"));
-        System.out.println(nextGreaterElement(12443322));
+        System.out.println(nextGreaterElement(21));
     }
 }
