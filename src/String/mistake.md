@@ -9,3 +9,7 @@
 * LeetCode678
 * LeetCode647
 * LeetCode49
+### 2017/12/9
+* LeetCode3
+* LeetCode43
+* LeetCode12
