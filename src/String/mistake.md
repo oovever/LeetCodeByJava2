@@ -15,3 +15,7 @@
 * LeetCode12
 ### 2017/12/10
 * LeetCode93
+* LeetCode165
+### 2017/12/12
+* LeetCode 609
+* LeetCode 522
