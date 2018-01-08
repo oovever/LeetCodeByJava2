@@ -9,46 +9,28 @@ import java.util.Map;
  * 2018/1/7 20:54
  */
 public class LeetCode464 {
-//    标记当前情况是否出现过，出现过就直接返回当前情况
-    static Map<String, Boolean> map;
-//    标记当前数字是否被使用
-    static boolean[] used;
-
-    public static boolean canIWin(int maxChoosableInteger, int desiredTotal) {
-        int sum = (1 + maxChoosableInteger) * maxChoosableInteger / 2;
-        if(sum<desiredTotal) return false;
-        if (desiredTotal <= 0) {
-            return true;
-        }
-        map = new HashMap<>();
-        used = new boolean[maxChoosableInteger + 1];
-        return helper(desiredTotal);
+    public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
+        if (desiredTotal<=0) return true;
+        if (maxChoosableInteger*(maxChoosableInteger+1)/2<desiredTotal) return false;
+        return canIWin(desiredTotal, new int[maxChoosableInteger], new HashMap<>());
     }
-
-    private static boolean helper(int desiredTotal) {
-        if (desiredTotal <= 0) return false;
-        String key = Arrays.toString(used);
-//        如果当前情况没有出现过
-        if (!map.containsKey(key)) {
-            for(int i=1;i<used.length;i++) {
-                if (!used[i]) {
-                    used[i] = true;
-//                    如果另一个人的选择无法获胜,则当前的人可以获胜
-                    if (!helper(desiredTotal - i)) {
-                        map.put(key, true);
-                        used[i] = false;
-                        return true;
-                    }
-                    used[i] = false;
+    private boolean canIWin(int total, int[] state, HashMap<String, Boolean> hashMap) {
+        String curr=Arrays.toString(state);
+        if (hashMap.containsKey(curr)) return hashMap.get(curr);
+        for (int i=0;i<state.length;i++) {
+            if (state[i]==0) {
+                state[i]=1;
+//                另一个人不能赢
+                if (total<=i+1 || !canIWin(total-(i+1), state, hashMap)) {
+                    hashMap.put(curr, true);
+                    state[i]=0;
+                    return true;
                 }
+                state[i]=0;
             }
-            map.put(key, false);
         }
-//        当前情况已经出现过
-        return map.get(key);
+        hashMap.put(curr, false);
+        return false;
     }
 
-    public static void main(String[] args) {
-        System.out.println(canIWin(18, 171));
-    }
 }
