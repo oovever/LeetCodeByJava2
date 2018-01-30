@@ -34,7 +34,7 @@ public class LeetCode14 {
     }
 
     public static void main(String[] args) {
-        String[] s = {"aca", "cba"};
+        String[] s = {"aca", "abb"};
         String s1 = "acgdsa";
         String s2 = "acgd";
         System.out.println(s1.indexOf(s2));

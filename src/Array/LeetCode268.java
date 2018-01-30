@@ -38,7 +38,4 @@ public class LeetCode268 {
         return sum;
     }
 
-    public static void main(String[] args) {
-        System.out.println(0^1);
-    }
 }

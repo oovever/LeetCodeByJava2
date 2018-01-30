@@ -9,11 +9,12 @@ import java.util.HashMap;
  * 如果是，则返回(当前位置,target-nums[i]的位置)
  */
 public class LeetCode1 {
-    public int[] twoSum(int[] nums, int target) {
+    public static int[] twoSum(int[] nums, int target) {
         HashMap<Integer,Integer> map = new HashMap();
         for(int i=0;i<nums.length;i++) {
             map.put(nums[i], i);
         }
+        System.out.println(map.get(1));
         for(int i=0;i<nums.length;i++) {
             if (map.containsKey(target - nums[i])&&map.get(target-nums[i])!=i) {
                 return new int[]{i, map.get(target - nums[i])};
@@ -21,4 +22,5 @@ public class LeetCode1 {
         }
         return null;
     }
+
 }
