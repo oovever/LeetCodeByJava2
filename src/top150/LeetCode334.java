@@ -1,0 +1,20 @@
+package top150;
+
+import java.util.Arrays;
+
+/**
+ * @author OovEver
+ * 2018/1/31 16:12
+ */
+public class LeetCode334 {
+    public boolean increasingTriplet(int[] nums) {
+        // start with two largest values, as soon as we find a number bigger than both, while both have been updated, return true.
+        int small = Integer.MAX_VALUE, big = Integer.MAX_VALUE;
+        for (int n : nums) {
+            if (n <= small) { small = n; } // update small if n is smaller than both
+            else if (n <= big) { big = n; } // update big only if greater than small but smaller than big
+            else return true; // return if you find a number bigger than both
+        }
+        return false;
+    }
+}
